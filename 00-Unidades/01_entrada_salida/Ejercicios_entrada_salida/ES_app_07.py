@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Marcos  
+apellido: Fernandez
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -76,7 +76,7 @@ class App(customtkinter.CTk):
         operador_a = int(self.txt_operador_a.get())
         operador_b = int(self.txt_operador_b.get())
 
-        div = int(operador_a / operador_b)
+        div = operador_a / operador_b
 
         alert("Division de dos numeros", f"El resultado de la division entre {operador_a} y {operador_b} es {div}")
         
