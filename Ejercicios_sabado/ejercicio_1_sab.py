@@ -4,15 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-'''
-nombre:
-apellido:
----
-Ejercicio: if_03bis
----
-Enunciado:
-A partir del ingreso de la altura de un basquetbolista determinar si es pivot o no. Para serlo el mismo deberá medir mas de 1.80 metros
-'''
+
+
+#Ingresar el valor del dólar oficial y el valor del dólar blue.
+#Mostrar la diferencia expresada en porcentaje entre una cotización y otra.
 
 
 class App(customtkinter.CTk):
@@ -22,23 +17,20 @@ class App(customtkinter.CTk):
 
         self.title("UTN FRA")
 
-        self.label1 = customtkinter.CTkLabel(master=self, text="Altura en M")
-        self.label1.grid(row=0, column=0, padx=20, pady=10)
-
-        self.txt_edad = customtkinter.CTkEntry(master=self)
-        self.txt_edad.grid(row=0, column=1)
-
         self.btn_mostrar = customtkinter.CTkButton(
             master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        altura = self.txt_edad.get()
+        dolar_oficial = float(prompt("Dolar oficial", "Ingrese el valor del dolar oficial"))
+        dolar_blue = float(prompt("Dolar blue", "Ingrese el valor del dolar blue"))
 
-        
+        porcentaje_dolares = (dolar_blue / dolar_oficial) * 100
+
+        dif_porcentaje = porcentaje_dolares - 100
 
 
-
+        alert("Diferencia porcentual", f"La diferencia porcentual es: {porcentaje_dolares}%")
 
 if __name__ == "__main__":
     app = App()
