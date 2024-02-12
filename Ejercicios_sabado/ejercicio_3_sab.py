@@ -3,7 +3,6 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
-import math
 
 '''
 A)
@@ -64,8 +63,7 @@ class App(customtkinter.CTk):
 
         #Multiplicar por 10 unidades de cometa
 
-        papel_colores_cu = papel_area / 2   #Saco el papel_cola porque no esta especificado en el ejercicio
-
+        papel_colores_cu = papel_area / 2   #No sumo  papel_cola porque no esta especificado en el ejercicio
 
         papel_colores_total = papel_colores_cu * 10
 
@@ -76,26 +74,7 @@ class App(customtkinter.CTk):
 
 
 
-
-
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
-
-#Area de los dos triangulos para sacar los colores
-#1. Lado mayor
-'''
-        Ac = math.sqrt((DC ** 2) + (AD ** 2))
-        h1 = DC / 2   #Se divide por dos ya que es la mitad de la diagonal menor
-
-        area_mayor = (Ac * h1) / 2
-        
-        #2. Lado menor
- 
-        Bc = math.sqrt((BD ** 2) + (DC ** 2))
-        area_menor = (h1 * Bc) / 2  #Se utiliza la mitad de la diagonal menor como base
-
-        area_colores = area_menor + area_mayor
-        area_colores_m = float(area_colores * 100)
-'''

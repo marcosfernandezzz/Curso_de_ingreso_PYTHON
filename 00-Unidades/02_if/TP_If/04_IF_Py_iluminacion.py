@@ -12,11 +12,13 @@ TP: IF_Iluminacion
 ---
 Enunciado:
 Todas las lámparas están  al mismo precio de $800 pesos final.
-		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
-		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
-		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
-		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+	A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
+	B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
+	C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % 
+    y si es de otra marca el descuento es del 20%.
+	D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz" el descuento es del 15%, 
+    si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+	E.	Si el importe final con descuento suma más de $4000  se obtiene un descuento adicional de 5%. 
 '''
 
 class App(customtkinter.CTk):
@@ -43,8 +45,59 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        cantidad = int(self.combobox_cantidad.get())
+        marca = str(self.combobox_marca.get())
         
+        precio_final = 800
+        precio_final = precio_final * cantidad
+
+        if cantidad == 3:
+
+            if marca == "ArgentinaLuz":
+                descuento = (precio_final * 15) / 100
+                precio_final = precio_final - descuento
+            elif marca == "FelipeLamparas":
+                descuento = (precio_final * 10) / 100
+                precio_final = precio_final - descuento
+            else: 
+                descuento = (precio_final * 5) / 100
+                precio_final = precio_final - descuento   
+
+        elif cantidad == 4:
+
+            if marca == "FelipeLamparas" or marca == "ArgentinaLuz":
+                descuento = (precio_final * 25) / 100
+                precio_final = precio_final - descuento      
+            else: 
+                descuento = (precio_final * 20) / 100
+                precio_final = precio_final - descuento      
+
+        elif cantidad == 5:
+
+            if marca == "ArgentinaLuz":
+                descuento = (precio_final * 40) / 100
+                precio_final = precio_final - descuento   
+            else:
+                descuento = (precio_final * 30) / 100
+                precio_final = precio_final - descuento                
+
+        elif cantidad >= 6:
+ 
+            if precio_final  > 4000: 
+                descuento = (precio_final * 5) / 100
+                precio_final = precio_final - descuento                 
+
+            descuento = (precio_final * 20) / 100
+            precio_final = precio_final - descuento  
+
+             
+  
+
+        
+        alert("UTN", f"El precio final de su compra es {precio_final}")
+
+                                                                                            
+                 
     
 if __name__ == "__main__":
     app = App()

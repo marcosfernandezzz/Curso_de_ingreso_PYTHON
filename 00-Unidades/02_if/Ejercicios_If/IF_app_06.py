@@ -12,7 +12,7 @@ Ejercicio: if_06
 ---
 Enunciado:
 Al presionar el botón 'Calcular', se deberá obtener el contenido de la caja de texto txtEdad, 
-transformarlo en número y calcular si es mayor, niño/a(menor de 10) o pre-adolescente 
+transformarlo en número y calcular si es mayor, niño/a (menor de 10) o pre-adolescente 
 (edad entre 10 y 13 años) o adolescente (edad entre 13 y 17 años) de edad, 
 se deberá informar utilizando el Dialog alert.
 '''
@@ -35,7 +35,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        edad = int(self.txt_edad.get())
+        if edad >= 18:
+            alert("UTN", "Es mayor")
+        elif edad >= 13 and edad <= 17:
+            alert("UTN", "Es adolescente")
+        elif edad >= 10:
+            alert("UTN", "Es pre-adolescente")
+        else: 
+            alert("UTN", "Es menor")
 
         
         

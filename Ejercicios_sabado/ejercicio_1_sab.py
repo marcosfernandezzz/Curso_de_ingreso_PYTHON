@@ -5,10 +5,10 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 
-
-#Ingresar el valor del dólar oficial y el valor del dólar blue.
-#Mostrar la diferencia expresada en porcentaje entre una cotización y otra.
-
+'''
+Ingresar el valor del dólar oficial y el valor del dólar blue.
+Mostrar la diferencia expresada en porcentaje entre una cotización y otra.
+'''
 
 class App(customtkinter.CTk):
 

@@ -83,11 +83,3 @@ if __name__ == "__main__":
     app.geometry("300x300")
     app.mainloop()
 
-    '''
-    Menor = edad < 13 "feliz dia"
-    adolescente = edad > 13 y edad <= 17. Si edad == 17 "útimo año!!!"
-    mayor = edad >= 18, "tenes edad de laburar". Si edad == 33 "como cristo". Si edad > 60 "A jubilarse". Si edad == 88 "lindo numero"
-
-    par o impar = Si (edad % 2) == 0 es par, sino impar
- 
-    '''
