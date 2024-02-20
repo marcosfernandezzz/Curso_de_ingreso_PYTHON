@@ -12,7 +12,7 @@ apellido:
 Ejercicio: Match_09
 ---
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
-Luego para calcular las tarifas total realiza el siguiente cálculo, 
+Luego para calcular las tarifas totales realiza el siguiente cálculo, 
 en función de la estación del año y del destino elegido:
     Si es invierno: 
         Bariloche tiene un aumento del 20% 
@@ -57,7 +57,43 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+        estacion = self.combobox_estaciones.get()
+
+        precio_inicial = 15000
+        descuento = 0
+        aumento = 0
+
+        match estacion:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        aumento = 20
+                    case "Mar del plata":
+                        descuento = 20
+                    case _:
+                        descuento = 10
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        descuento = 20
+                    case "Cataratas" | "Cordoba":
+                        aumento = 10
+                    case "Mar del plata":
+                        aumento = 20
+            case _:
+                if destino != "Cordoba":
+                    aumento = 10
+
+        precio_aumento = (precio_inicial * aumento) / 100
+        precio_descuento = (precio_inicial * descuento) / 100
+
+        precio_final = precio_inicial + precio_aumento - precio_descuento
+
+
+        alert("Precio", f"El precio final para su destino {destino} en {estacion} es de {precio_final}")                 
+
+
             
     
 if __name__ == "__main__":

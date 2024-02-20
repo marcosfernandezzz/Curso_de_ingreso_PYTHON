@@ -14,7 +14,7 @@ Ejercicio: Match_04
 Enuciado:
 Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
 en función del mes seleccionado:
-    Si tiene 28 días
+    Si tiene 28 días  "
     Si tiene 30 días
     Si tiene 31 días
 '''
@@ -38,7 +38,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+
+        match mes: 
+            case "Enero" | "Marzo" | "Mayo" | "Julio" | "Agosto" | "Octubre" | "Diciembre":
+                msj = "Tiene 31 dias"
+            case "Abril" | "Junio" | "Septiembre" | "Noviembre":
+                msj = "Tiene 30 días"
+            case "Febrero": 
+                msj = "Tiene 28 días"
+
+        alert("UTN", msj)
     
 if __name__ == "__main__":
     app = App()

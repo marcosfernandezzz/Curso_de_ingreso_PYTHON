@@ -16,7 +16,7 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+		E.	Si el importe final con descuento suma más de $4000  se obtiene un descuento adicional de 5%.
 '''
 
 class App(customtkinter.CTk):
@@ -43,7 +43,55 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+
+        precio_inicial = 800
+
+        match cantidad:
+            case 1 | 2:
+                precio_final *= cantidad
+
+            case 3:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = (precio_inicial * 15) / 100
+                        precio_final = (precio_inicial - descuento) * cantidad
+                    case "FelipeLamparas":
+                        descuento = (precio_inicial * 10) / 100
+                        precio_final = (precio_inicial - descuento) * cantidad                        
+                    case _:
+                        descuento = (precio_inicial * 5) / 100
+                        precio_final = (precio_inicial - descuento)  * cantidad     
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = (precio_inicial * 25) / 100
+                        precio_final = precio_inicial - descuento   
+                    case _:
+                        descuento = (precio_inicial * 20) / 100
+                        precio_final = (precio_inicial - descuento)  * cantidad 
+
+            case 5:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = (precio_inicial * 40) / 100
+                        precio_final = (precio_inicial - descuento) * cantidad           
+                    case _:
+                        descuento = (precio_inicial * 30) / 100
+                        precio_final = (precio_inicial - descuento) * cantidad  
+
+            case _:
+                    descuento = (precio_inicial * 50) / 100
+                    precio_final = (precio_inicial - descuento) * cantidad
+                    
+
+
+        if precio_final > 4000:                   
+                descuento = (precio_inicial * 5) / 100
+                precio_final = precio_final - descuento   
+
+        alert("Precio final", f"El precio final de {cantidad} lamparitas bajo consumo marca {marca} es de {precio_final}")                                                                                                      
         
     
 if __name__ == "__main__":

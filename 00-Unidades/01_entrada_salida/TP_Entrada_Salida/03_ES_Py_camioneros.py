@@ -61,9 +61,10 @@ class App(customtkinter.CTk):
     def btn_tiempo_llegada_on_click(self):
         kilometros = int(self.txt_kilometros.get())
 
-        horas = math.ceil(kilometros / 90)
+        horas = (kilometros // 90) 
+        minutos = (kilometros % 60)
 
-        alert("Tiempo de llegada en horas", f"Con una velocidad constante de {kilometros} km/h la llegada a destino será en {horas} hora/s.")
+        alert("Tiempo de llegada en horas", f"Con una velocidad constante de {kilometros} km/h la llegada a destino será en {horas:.0f} hora/s y {minutos:.0f} minutos.")
     
 if __name__ == "__main__":
     app = App()

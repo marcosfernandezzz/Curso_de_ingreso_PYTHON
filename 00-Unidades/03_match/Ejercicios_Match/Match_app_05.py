@@ -13,8 +13,7 @@ Ejercicio: Match_05
 ---
 Enunciado:
 Obtener la hora ingresada en el txt_hora. Al presionar el botón ‘Informar’ 
-mostrar mediante alert el mensaje ‘Es de mañana’ 
-si la hora ingresada está entre las 7 y las 11
+mostrar mediante alert el mensaje ‘Es de mañana’ si la hora ingresada está entre las 7 y las 11
 '''
 
 
@@ -35,7 +34,15 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = int(self.txt_hora.get())
+        msj = ""
+
+        match hora: 
+            case 7 | 8 | 9 | 10 | 11:
+                msj = "Es de mañana"
+
+        alert("UTN", msj)
+
     
     
 if __name__ == "__main__":

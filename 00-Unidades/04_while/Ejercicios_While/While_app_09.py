@@ -40,7 +40,44 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        bandera = False  #La bandera no esta activada (El usuario no ingresó un número)
+
+        #Los maximos y minimos no se inicializan
+        
+        while True:
+            numero = prompt("Numeros", "Ingrese un numero: ")
+
+            if numero == None:
+                break
+
+            else:    
+                numero = int(numero)
+
+                if bandera == False:    #Ya no es la primera vez que ingresa un numero
+                    maximo = numero
+                    minimo = numero
+
+                    bandera = True
+                else:
+                    #Encontremos el maximo
+                    if numero > maximo:   #Si el numero ingresado actualmente es mayor al maximo anterior
+                        
+                        maximo = numero    #Es nuevo numero es el nuevo maximo
+
+                    else:
+            
+                        if numero < minimo:
+
+                            minimo = numero
+
+
+            alert("Maximo y minimo", f"El maximo es {maximo} y el minimo es {minimo}")
+
+                
+
+
+
 
 
 if __name__ == "__main__":
