@@ -27,9 +27,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = prompt("Ejercicio 5", "Ingrese el último numero del bucle: ")
+        numero = int(numero)
+
+        cantidad_pares = 0
+
+        for i in range(1, numero + 1):   #Se le suma 1 para que vaya exactamente al numero ingresado
+
+            if i % 2 == 0:
+                cantidad_pares += 1
+                alert("", i)
             
-        
+        alert("", f"Cantidad de pares: {cantidad_pares}")
     
 if __name__ == "__main__":
     app = App()

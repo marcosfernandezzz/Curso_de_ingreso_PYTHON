@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import random
 
 '''
 nombre:
@@ -37,7 +38,42 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        numero_secreto = random.randint(1, 100)
+
+        intentos = 0
+
+        for i in range(1, 8):
+            numero = prompt("", "¿Cual es el numero secreto?")
+            numero = int(numero)
+
+            intentos += 1
+
+            if numero == numero_secreto:
+                match intentos:
+                    case 1: 
+                        alert("", "Usted es psíquico")
+                    case 2: 
+                        alert("", "Excelente precepción")
+                    case 3:
+                        alert("", "Esto es suerte")
+                    case 4 | 5 | 6:
+                        alert("", "Excelente técnica")
+                    
+                if intentos == 7:
+                        alert("", "Perdiste, suerte para la proxima")    #ARREGLAR LO DE CUANDO PIERDE
+            else:
+                if numero < numero_secreto:
+                    alert("", "Falta...")
+                else:
+                    alert("", "Se pasó...")
+
+
+
+
+
+
+
                 
 
     

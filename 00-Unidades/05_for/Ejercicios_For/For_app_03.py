@@ -32,7 +32,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        repetir = self.txt_repetir.get()
+        repetir = int(repetir)
+
+        for i in range(repetir + 1):
+            alert("UTN", "Hola UTN FRA")
 
         
     

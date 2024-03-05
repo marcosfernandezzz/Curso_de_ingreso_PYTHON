@@ -26,8 +26,27 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-    
+        numero = prompt("", "Ingrese un numero: ")
+        numero = int(numero)
+
+        for i in range(1, numero + 1):     #"i" itera desde 1 hasta EXACTAMENTE el numero elegido (por eso es + 1, ya que sino seria un numero menos)
+            count_div = 0
+            for j in range(1, i + 1):      #"j" busca TODOS los divisores posibles de "i", y va iterando hasta que se cumplan todos los valores desde 1 hasta i + 1 (es decir, hasta i)
+                if i % j == 0:
+                    count_div = count_div + 1
+
+            if count_div == 2:
+                print(i)
+
+        
+
+            
+
+
+
+                
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

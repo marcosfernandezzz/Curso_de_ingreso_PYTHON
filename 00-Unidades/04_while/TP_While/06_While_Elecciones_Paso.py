@@ -37,6 +37,64 @@ class App(customtkinter.CTk):
     def btn_validar_on_click(self):
         pass
 
+            
+    #https://onlinegdb.com/-YSGbYP8y
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # while True:
+        #     nombre = prompt("Nombre", "Ingrese el nombre del candidato: ")
+
+        #     if nombre == None or nombre == "":
+        #         continue
+        #     else:
+        #         break
+
+        
+        # while True:
+        #     edad = prompt("Edad", "Ingrese la edad del candidato: ")
+
+        #     if edad == None:
+        #         continue
+
+        #     edad = int(edad)
+
+        #     if edad < 25:
+        #         continue
+        #     else:
+        #         break
+
+
+
+        
+        
+
+
+
+
+
+            
+            
+             
+
+
+
+
+
 
 if __name__ == "__main__":
     app = App()

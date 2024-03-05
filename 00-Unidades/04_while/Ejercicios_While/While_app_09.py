@@ -63,11 +63,11 @@ class App(customtkinter.CTk):
                     #Encontremos el maximo
                     if numero > maximo:   #Si el numero ingresado actualmente es mayor al maximo anterior
                         
-                        maximo = numero    #Es nuevo numero es el nuevo maximo
+                        maximo = numero    #El maximo ahora es el nuevo numero
 
                     else:
             
-                        if numero < minimo:
+                        if numero < minimo: #El minimo ahora es el nuevo numero
 
                             minimo = numero
 
